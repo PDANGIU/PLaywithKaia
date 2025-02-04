@@ -1,4 +1,4 @@
-# 🚀 **PlaywithHUC** 🚀<img alt="play" src="https://github.com/user-attachments/assets/b7ed8787-0f42-49de-8ad0-ffcd653c71c1" style="width: 50px; height: 50px; border: 2px solid #000; border-radius: 10px;">
+# 🚀 **PlaywithKaia** 🚀<img alt="play" src="https://github.com/user-attachments/assets/b7ed8787-0f42-49de-8ad0-ffcd653c71c1" style="width: 50px; height: 50px; border: 2px solid #000; border-radius: 10px;">
 The project solves the problem of finding a reliable game companion, lack of a secure payment system, value communication and lack of community space. The platform connects players with creators, providing transparent payments and next-generation tools.
 
 ### Folder Structure
