@@ -26,7 +26,7 @@ The project contains two main folders:
 ## Setup Instructions Frontend
 1. **Clone the Repository**: Clone the project repository to your local machine.
 ```bash
-git clone https://github.com/Huc06/PLaywithHUC
+https://github.com/PDANGIU/PLaywithKaia.git
 ```
 2. **Navigate to the project folder**
 ```bash
