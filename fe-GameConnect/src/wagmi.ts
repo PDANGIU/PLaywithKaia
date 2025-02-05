@@ -1,9 +1,9 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { ancient8Sepolia } from "wagmi/chains";
+import { kairos } from "wagmi/chains";
 
 export const config = getDefaultConfig({
   appName: "RainbowKit App",
   projectId: "YOUR_PROJECT_ID",
-  chains: [ancient8Sepolia],
+  chains: [kairos],
   ssr: true,
 });

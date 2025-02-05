@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,7 +12,7 @@ import {
 } from 'wagmi';
 import { GamerProfileWithCommentsABI } from '../../../abis/GamerProfileWithComments'; // Adjust the path as necessary
 
-const contractAddress = '0x609377Ea77aE7103Dc8dE2b98936B35f219DDA31'; // Replace with your contract address
+const contractAddress = '0x4a9C121080f6D9250Fc0143f41B595fD172E31bf'; // Replace with your contract address
 
 interface ProfileFormProps {
   onSubmit: (profile: Profile) => void;
@@ -48,6 +48,24 @@ export default function ProfileForm({ onSubmit, onCancel }: ProfileFormProps) {
     isPending, 
     writeContract 
   } = useWriteContract();
+
+  useEffect(() => {
+    const storedProfile = localStorage.getItem('userProfile');
+    if (storedProfile) {
+      const parsedProfile = JSON.parse(storedProfile);
+      setFormData({
+        hourlyRate: parsedProfile.hourlyRate || "",
+        username: parsedProfile.username || "",
+        walletAddress: parsedProfile.walletAddress || "",
+        imageType: parsedProfile.imageType || "url",
+        imageUrl: parsedProfile.imageUrl || "",
+        imageFile: parsedProfile.imageFile || "",
+        badges: parsedProfile.badges.join(", ") || "",
+        bio: parsedProfile.bio || "",
+        status: parsedProfile.status || "online",
+      });
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
