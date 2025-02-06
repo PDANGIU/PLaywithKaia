@@ -4,7 +4,7 @@ import Game from "@/components/Home/Communication/Game";
 import { Navigation } from "@/components/Home/Communication/Navigation";
 import { Sidebar } from "@/components/Home/Communication/SideBar";
 import { CreatePost } from "@/components/Home/Communication/CreatePost";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Post, User } from "@/components/types/post";
 
 const currentUser: User = {
@@ -27,7 +27,7 @@ export default function App() {
       },
       content: `Happy New Year to all Forgers! 🎉
 
-We're thrilled to share that Stellar Forger Alpha is coming soon! ☄️ Let’s make 2025 a year of growth, innovation, and unforgettable moments together. Thank you for being part of this incredible journey`,
+We're thrilled to share that Stellar Forger Alpha is coming soon! ☄️ Let's make 2025 a year of growth, innovation, and unforgettable moments together. Thank you for being part of this incredible journey`,
       image: "static/post/newyear.png",
       timestamp: "4 minutes ago",
       likes: 100,
@@ -71,19 +71,29 @@ Welcome to the Free Zone. No gods. No masters. Not even Machine God.`,
     },
   ]);
 
+  useEffect(() => {
+    const storedPosts = localStorage.getItem('posts');
+    if (storedPosts) {
+      setPosts(JSON.parse(storedPosts));
+    }
+  }, []);
+
   const addPost = (
     newPost: Omit<Post, "id" | "timestamp" | "likes" | "comments">
   ) => {
-    setPosts((prevPosts) => [
+    const updatedPosts = [
       {
         ...newPost,
-        id: prevPosts.length + 1,
+        id: posts.length + 1,
         timestamp: "just now",
         likes: 0,
         comments: 0,
       },
-      ...prevPosts,
-    ]);
+      ...posts,
+    ];
+
+    setPosts(updatedPosts);
+    localStorage.setItem('posts', JSON.stringify(updatedPosts));
     setIsCreatePostOpen(false);
   };
 
