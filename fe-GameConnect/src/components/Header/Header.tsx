@@ -30,7 +30,7 @@ export const Header = () => {
             to="/"
             className="text-2xl sm:text-3xl font-bold flex items-center space-x-2"
           >
-            <span>PlaywithHUC</span>
+            <span>PlaywithKaia</span>
             <img src={merry} alt="Merry" className="h-10 w-10" />
           </Link>
           <Link to="/communication" className="text-2xl font-bold">
