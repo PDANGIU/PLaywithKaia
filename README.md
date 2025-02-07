@@ -59,4 +59,4 @@ You can start editing the page by modifying `src/main.tsx`. The page auto-update
 To run the server, please refer to the README in the 'server' folder.
 
 ##Video Demo
- [PLaywithHUC](https://www.youtube.com/watch?v=EbZtwZk22vE)
+ [PLaywithKaia](https://youtu.be/XOd6qtsSaoc?si=0T5IWWaon3B7FDQN)
