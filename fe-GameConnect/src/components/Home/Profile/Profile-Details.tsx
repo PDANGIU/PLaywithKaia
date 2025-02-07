@@ -91,7 +91,7 @@ export function ProfileDetails({ profile }: ProfileDetailsProps) {
       </div>
       <div className="mt-4">
         <h3 className="font-bold">Hourly Rate:</h3>
-        <p className="text-gray-300">{profile.hourlyRate} A8</p>
+        <p className="text-gray-300">{profile.hourlyRate} KAI</p>
       </div>
       <div className="mt-4">
         <h3 className="font-bold">Send Payment:</h3>

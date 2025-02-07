@@ -28,7 +28,7 @@ export default function ProfileCard(props: Profile) {
             />
             <div className="flex items-center justify-between p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white">
               <span className="font-bold text-lg">Hourly Rate:</span>
-              <span className="text-xl">{props.hourlyRate} A8</span>
+              <span className="text-xl">{props.hourlyRate} KAI</span>
             </div>
           </div>
 
