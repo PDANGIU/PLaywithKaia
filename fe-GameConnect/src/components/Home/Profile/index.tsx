@@ -1,7 +1,7 @@
 import ProfileCard from "./Profile-Card";
 import { Button } from "@/components/ui/button";
 import ProfileForm from "./Profile-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Profile } from "../../types/profile";
 import Modal from "./Modal";
 
@@ -105,8 +105,16 @@ const initialProfiles = [
 ];
 
 export default function ProfileGrid() {
-  const [profiles, setProfiles] = useState(initialProfiles);
+  const [profiles, setProfiles] = useState(() => {
+    const savedProfiles = localStorage.getItem("profiles");
+    return savedProfiles ? JSON.parse(savedProfiles) : initialProfiles;
+  });
+
   const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+  }, [profiles]);
 
   const handleCreateProfile = (newProfile: Profile) => {
     setProfiles([
@@ -139,7 +147,7 @@ export default function ProfileGrid() {
           />
         </Modal>
         <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4">
-          {profiles.map((profile) => (
+          {profiles.map((profile: Profile) => (
             <ProfileCard key={profile.username} {...profile} />
           ))}
         </div>
